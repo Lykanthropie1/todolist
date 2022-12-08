@@ -20,12 +20,14 @@ class TaskController extends Controller
     public function store(StoreRequest $request)
     {
         $request->user()->tasks()->create($request->validated());
+        
         return redirect()->route('task.index');
     }
 
     public function delete(Task $task)
     {
         $task->delete();
+
         return redirect()->route('task.index');
     }
 }
